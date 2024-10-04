@@ -102,6 +102,7 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\ping:estore-sfdc-system-api-config">
+        <logger doc:name="Start Logger" doc:id="axnshj" message="#['****************FLOW START AT: ' ++ now() as String]"/>
         <ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
@@ -112,5 +113,6 @@ output application/json
 } as Object {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
             </ee:message>
         </ee:transform>
+         <logger doc:name="End Logger" doc:id="axnshj" message="#['****************FLOW END AT: ' ++ now() as String]"/>
     </flow>
 </mule>
