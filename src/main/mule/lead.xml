@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+
+    <sub-flow name="get-leadSubFlow" doc:id="aff22a6e-77e0-4f43-aa28-0d722e533f58">
+        <logger level="INFO" message="#['****************FLOW START AT: ' ++ now() as String ++ ' Flowname: ' ++ flow.name as String]" doc:name="Start Logger" doc:id="yixojb" />
+        <logger level="INFO" message="#['****************FLOW END AT: ' ++ now() as String]" doc:name="End Logger" doc:id="alwkry" />
+    </sub-flow>
+</mule>

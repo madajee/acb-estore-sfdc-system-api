@@ -11,3 +11,22 @@ title: estore-sfdc-system-api
             type: object
             examples:
               example1: !include examples/ping-response.raml
+/lead:
+  get:
+     queryParameters:
+      leadname:
+        description: leadname
+        type: string
+        required: false
+      company:
+        description: company
+        type: string
+        required: false
+     description: getlead
+     responses:
+      200:
+        body:
+          application/json:
+              type: object
+              examples:
+                example3: !include examples/get-lead-by-name-response.raml

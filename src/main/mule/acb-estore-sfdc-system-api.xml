@@ -102,7 +102,7 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\ping:estore-sfdc-system-api-config">
-        <logger doc:name="Start Logger" doc:id="axnshj" message="#['****************FLOW START AT: ' ++ now() as String]"/>
+        <logger doc:name="Start Logger" doc:id="1e93f172-0eb2-4e17-947a-d0a3c8a6471d" message="#['****************FLOW START AT: ' ++ now() as String ++ ' Flowname: ' ++ flow.name as String]"/>
         <ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
@@ -114,5 +114,21 @@ output application/json
             </ee:message>
         </ee:transform>
          <logger doc:name="End Logger" doc:id="axnshj" message="#['****************FLOW END AT: ' ++ now() as String]"/>
+    </flow>
+   <flow name="get:\lead:estore-sfdc-system-api-config">
+        <ee:transform doc:name="queryparameters" doc:id="b87b4789-43ad-4518-b04c-f88156ec9c84" >
+			<ee:message >
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="queryparameters" ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"leadname": attributes.queryParams.'leadname' default null,
+	"company": attributes.queryParams.'company' default null
+}]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<flow-ref doc:name="get-leadSubFlow" doc:id="799e42fb-0ad5-448e-9605-bcd87da63f84" name="get-leadSubFlow"/>
     </flow>
 </mule>
