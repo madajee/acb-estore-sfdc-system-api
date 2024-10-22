@@ -2,13 +2,18 @@
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+  xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
 	xmlns:http="http://www.mulesoft.org/schema/mule/http"
 	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
  xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
   http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
   http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+  http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
 	http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd">
-  
+       
+       <secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="12f82c4c-e292-4e0d-ba40-2197b56b6404" file="secure.properties" key="${secure.key}" >
+		    <secure-properties:encrypt algorithm="Blowfish" />
+	    </secure-properties:config> 
        <flow name="estore-sfdc-system-api-main">
         <http:listener config-ref="estore-sfdc-system-api-httpListenerConfig" path="/api/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
@@ -103,6 +108,8 @@ output application/json
     </flow>
     <flow name="get:\ping:estore-sfdc-system-api-config">
         <logger doc:name="Start Logger" doc:id="1e93f172-0eb2-4e17-947a-d0a3c8a6471d" message="#['**************** FLOW START AT: ' ++ now() as String ++ ' Flowname: ' ++ flow.name as String ++ ' ****************']"/>
+         <set-payload value="#[&quot;It worked! Secured property: &quot; ++ Mule::p('secure::encrypted.property')]" doc:name="Set Payload" doc:id="5e24b1eb-3be8-49e5-99c4-c121351b519c" />
+		<logger level="INFO" doc:name="Logger" doc:id="7857a437-2749-4b60-8c7a-467eb26c74b9" message='#[payload]' />
         <ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
