@@ -13,7 +13,6 @@
         <app.runtime>4.4.0</app.runtime>
         <app.name>acb-estore-sfdc-system-api</app.name>
         <env>Sandbox</env>
-        <secure.key>${decryption.key}</secure.key>
     </properties>
     <build>
         <plugins>
@@ -39,11 +38,6 @@
                         <region>us-east-2</region>
                         <workers>1</workers>
                         <objectStoreV2>true</objectStoreV2>
-                        <!-- Start: SECURED PROPERTIES CI/CD -->
-                            <properties>
-                            <secure.key>${decryption.key}</secure.key>
-                            </properties>
-                        <!-- End: SECURED PROPERTIES CI/CD -->
                     </cloudHubDeployment>
                     <classifier>mule-application</classifier>
                 </configuration>
