@@ -102,7 +102,7 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\ping:estore-sfdc-system-api-config">
-        <logger doc:name="Start Logger" doc:id="1e93f172-0eb2-4e17-947a-d0a3c8a6471d" message="#['****************FLOW START AT: ' ++ now() as String ++ ' Flowname: ' ++ flow.name as String]"/>
+        <logger doc:name="Start Logger" doc:id="1e93f172-0eb2-4e17-947a-d0a3c8a6471d" message="#['**************** FLOW START AT: ' ++ now() as String ++ ' Flowname: ' ++ flow.name as String ++ ' ****************']"/>
         <ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
@@ -113,7 +113,7 @@ output application/json
 } as Object {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
             </ee:message>
         </ee:transform>
-         <logger doc:name="End Logger" doc:id="axnshj" message="#['****************FLOW END AT: ' ++ now() as String]"/>
+         <logger doc:name="End Logger" doc:id="axnshj" message="#['**************** FLOW END AT: ' ++ now() as String ++ ' ****************']"/>
     </flow>
    <flow name="get:\lead:estore-sfdc-system-api-config">
         <ee:transform doc:name="queryparameters" doc:id="b87b4789-43ad-4518-b04c-f88156ec9c84" >
