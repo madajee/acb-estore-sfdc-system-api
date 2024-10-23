@@ -2,18 +2,12 @@
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
-  xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
 	xmlns:http="http://www.mulesoft.org/schema/mule/http"
 	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
  xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
   http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
   http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-  http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
 	http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd">
-       
-       <secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="12f82c4c-e292-4e0d-ba40-2197b56b6404" file="secure.properties" key="${secure.key}" >
-		    <secure-properties:encrypt algorithm="Blowfish" />
-	    </secure-properties:config> 
        <flow name="estore-sfdc-system-api-main">
         <http:listener config-ref="estore-sfdc-system-api-httpListenerConfig" path="/api/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
