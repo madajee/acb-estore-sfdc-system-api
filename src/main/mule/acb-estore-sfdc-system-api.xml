@@ -102,7 +102,7 @@ output application/json
     </flow>
     <flow name="get:\ping:estore-sfdc-system-api-config">
         <logger doc:name="Start Logger" doc:id="1e93f172-0eb2-4e17-947a-d0a3c8a6471d" message="#['**************** FLOW START AT: ' ++ now() as String ++ ' Flowname: ' ++ flow.name as String ++ ' ****************']"/>
-         <set-payload value="#[&quot;It works! Secured property: &quot; ++ Mule::p('secure::encrypted.property')]" doc:name="Set Payload" doc:id="5e24b1eb-3be8-49e5-99c4-c121351b519c" />
+         <set-payload value="#[&quot;It worked! Secured property: &quot; ++ Mule::p('secure::encrypted.property')]" doc:name="Set Payload" doc:id="5e24b1eb-3be8-49e5-99c4-c121351b519c" />
 		<logger level="INFO" doc:name="Logger" doc:id="7857a437-2749-4b60-8c7a-467eb26c74b9" message='#[payload]' />
         <ee:transform doc:name="Transform Message">
             <ee:message>
