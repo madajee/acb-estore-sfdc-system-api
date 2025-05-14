@@ -71,7 +71,13 @@
         <dependency>
             <groupId>com.mulesoft.modules</groupId>
             <artifactId>mule-secure-configuration-property-module</artifactId>
-            <version>1.2.5</version>
+            <version>1.2.7</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.connectors</groupId>
+            <artifactId>mule-salesforce-connector</artifactId>
+            <version>10.22.8</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     </dependencies>

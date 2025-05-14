@@ -1,2 +1,6 @@
 encrypted:
-  property: "![AEsjhbQXeLM=]"
+  property: "![gjdsS4SCiDQ=]"
+sfdc:
+  username: "test"
+  password: "test"
+  token: "test"

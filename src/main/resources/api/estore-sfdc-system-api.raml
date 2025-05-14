@@ -11,6 +11,18 @@ title: estore-sfdc-system-api
             type: object
             examples:
               example1: !include examples/ping-response.raml
+
+/userinfo:
+  get:
+    description: ping
+    responses:
+      200:
+        body:
+          application/json:
+            type: object
+            examples:
+              example1: !include examples/ping-response.raml
+              
 /lead:
   get:
      queryParameters:
